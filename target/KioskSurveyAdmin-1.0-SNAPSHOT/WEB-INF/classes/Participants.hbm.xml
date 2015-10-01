@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.petegerhat.kiosksurvey.Participant" table="Participants">
+        <id name="username" type="string" column="username"></id>
+        <property name="country" column="country" type="string"/>
+        <property name="age" column="age" type="int"/>
+        <property name="gender" column="gender" type="string"/>
+        <property name="comment" column="comment" type="string"/>
+        <property name="service" column="service" type="string"/>
+        <property name="worker_id" column="worker_id" type="string"/>
+        <property name="campaign_id" column="campaign_id" type="string"/>
+        <property name="reg_date" column="reg_date" type="timestamp"/>
+        <property name="active" column="active" type="boolean"/>
+
+        <set name="records" table="Records" cascade="all">
+            <key column="username"/>
+            <one-to-many class="com.petegerhat.kiosksurvey.Record"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.petegerhat.kiosksurvey.Record" table="Records">
+        <composite-id>
+            <key-property name="username" type="string" column="username"/>
+            <key-property name="av_ethnicity" column="av_ethnicity" type="int"/>
+            <key-property name="av_gender" column="av_gender" type="int"/>
+            <key-property name="av_maturity" column="av_maturity" type="int"/>
+            <key-property name="av_expression" column="av_expression" type="int"/>
+        </composite-id>
+        <property name="T1" column="T1" type="int"/>
+        <property name="T2" column="T2" type="int"/>
+        <property name="L1" column="L1" type="int"/>
+        <property name="L2" column="L2" type="int"/>
+        <property name="av_comment" column="av_comment" type="string"/>
+        <property name="entry_date" column="entry_date" type="timestamp"/>
+    </class>
+</hibernate-mapping>

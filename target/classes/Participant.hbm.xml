@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.petegerhat.kiosksurvey.Participant" table="Participants">
+        <meta attribute="class-description">
+            This class contains the participant details.
+        </meta>
+        <id name="username" type="string" column="username"></id>
+        <property name="country" column="country" type="string" insert="false" update="false"/>
+        <property name="age" column="age" type="int" insert="false" update="false"/>
+        <property name="gender" column="gender" type="string" insert="false" update="false"/>
+        <property name="comment" column="comment" type="string" insert="false" update="false"/>
+        <property name="service" column="service" type="string" insert="false" update="false"/>
+        <property name="worker_id" column="worker_id" type="string" insert="false" update="false"/>
+        <property name="campaign_id" column="campaign_id" type="string" insert="false" update="false"/>
+        <property name="reg_date" column="reg_date" type="timestamp" insert="false" update="false"/>
+        <property name="active" column="active" type="boolean" insert="false" update="false"/>
+
+        <set name="records" table="ParticipantRecord" cascade="all">
+            <key column="Participants.username"/>
+            <many-to-many column="Records.username" class="com.petegerhat.kiosksurvey.Record"/>
+        </set>
+    </class>
+</hibernate-mapping>
